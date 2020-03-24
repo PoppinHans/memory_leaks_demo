@@ -10,6 +10,12 @@ This guide walks you through a couple of practices to avoid memory leaks in the 
 
 2. Properly use smart pointers
 
-   ​	Do not use smart pointers because they get deleted automatically, use them when ownership needs to be considered. In a rendering scenario, a node can own several sub-nodes, thus is responsible to dynamically allocate memory for the sub-nodes when data is ready, at the same time old chunks of memory are no longer accessible by the sub-nodes. Using a smart pointer makes sure the memory does not get freed as long as some elements in scene still holds it.         
+   ​	Anytime when memory is dynamically allocated, you have to think of transferring ownership. Transferring ownership means that an object passes the responsibility to ensure a dynamically allocated object is deleted to another object.
+
+   ​	Smart pointers come handy in automating ownership bookkeeping, and they are helpful in scenarios where memory is constantly being dynamically allocated and deallocated on the fly.
 
 3. All base classes should have a virtual destructor
+
+   ​	Suppose a base pointer owns a dynamically allocated derived class object, and the base class has no virtual destructor. When the base pointer gets deleted, only the base destructor is then called, which leaves the resources exclusive to the derived class untouched in the heap. Thus memory leaks occur.
+
+   ​	In cases where a hierarchy of inheritance is present, every class except the leaf classes on the hierarchical tree has to have a virtual destructor. Although it is a good practice to give every class a virtual destructor, just in case it gets inherited. 
