@@ -1,8 +1,16 @@
-#include <iostream>
+#include <vector>
 
 int main() {
-    //1. instance over dynamically allocated memory
-    //2. smart pointers to transfer ownership
-    //3. virtual destructor for base classes
-    return 0;
+  //1. instance over dynamically allocated memory
+  std::vector<int>* v;
+  v = new std::vector<int>(1, 0);
+
+  v->emplace_back(1);
+
+  std::vector<int> tmp;
+  v->swap(tmp);
+  delete v;
+  v = nullptr;
+
+  return 0;
 }
