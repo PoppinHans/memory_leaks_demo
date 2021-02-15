@@ -1,1 +1,1 @@
-Please refer to the [Wiki Page] (https://github.com/PoppinHans/memory_leaks_demo/wiki)
+Please refer to the [Wiki Page](https://github.com/PoppinHans/memory_leaks_demo/wiki).
