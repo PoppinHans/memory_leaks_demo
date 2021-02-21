@@ -4,18 +4,19 @@
 #include <memory>
 
 class List {
+public:
   struct Node {
     int data_;
     std::unique_ptr<Node> next_;
     Node(int data) : data_{data}, next_{nullptr} {}
   };
 
-public:
   List() : head_(nullptr) {}
-  ~List();
+  virtual ~List();
+
   void Push(int data);
 
-private:
+protected:
   std::unique_ptr<Node> head_;
 };
 

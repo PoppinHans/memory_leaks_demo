@@ -1,8 +1,10 @@
-#include "../include/list.h"
+#include "list.h"
 
 List::~List() {
-  while(head_)
-    head_ = std::move(head_->next_);
+//  while(head_)
+//    head_ = std::move(head_->next_);
+
+  printf("List destructor triggered.\n");
 }
 
 void List::Push(int data) {

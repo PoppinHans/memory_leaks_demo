@@ -4,7 +4,7 @@ project(memory_leak_demo)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
-file(GLOB SRC src/main.cc src/list.cc)
+file(GLOB SRC src/main.cc src/list.cc src/two_pointer_list.cc)
 
 add_executable(memory_leak_demo ${SRC})
 
